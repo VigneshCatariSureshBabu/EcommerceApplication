@@ -2,5 +2,18 @@
 # from django.shortcuts module
 from django.shortcuts import render
 
+# Importing product model
+from store.models import Product
+
 def home(request):
-    return render(request, 'home.html')
+    
+    # To fetch all the products that are available
+    products= Product.objects.all().filter(is_available = True)
+    
+    # Passing value from products into context for rendering
+    context = {
+        'products': products
+        }
+    
+    
+    return render(request, 'home.html', context)
