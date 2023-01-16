@@ -3,10 +3,13 @@ from django.db import models
 # Importing Category Model
 from category.models import Category
 
+# To import the reverse
+from django.urls import reverse
+
 # For each store we have to create a product model
 class Product(models.Model):
     product_name = models.CharField(max_length = 50, unique = True)
-    product_url = models.SlugField(max_length = 100, unique = True)
+    slug = models.SlugField(max_length = 100, unique = True)
     description = models.TextField(max_length =255 , blank =True)
     price = models.FloatField()
     image = models.ImageField(upload_to = 'photos/product')
@@ -17,6 +20,9 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+    
+    def get_url(self):
+        return reverse('product_details', args= [self.category.slug, self.slug])
     
     def __str__(self):
         return self.product_name

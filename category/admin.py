@@ -8,8 +8,8 @@ from django.contrib.auth.admin import UserAdmin
 
 # Category Model
 class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'category_url': ('category_name',)}
-    list_display = ('category_name', 'category_url')
+    prepopulated_fields = {'slug': ('category_name',)}
+    list_display = ('category_name', 'slug')
 
 # Registering the Category model
 admin.site.register(Category, CategoryAdmin)

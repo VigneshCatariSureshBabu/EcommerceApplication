@@ -71,6 +71,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Adding the Context-Processor so that the drop down context
+                # will be fetched from here
+                'category.context_processor.menu_links', 
             ],
         },
     },
