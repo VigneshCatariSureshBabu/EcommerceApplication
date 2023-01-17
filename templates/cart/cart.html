@@ -8,10 +8,13 @@ extend this file-->
 {% block content %} 
 <section class="section-content padding-y bg">
 		<div class="container">
-
-			<!-- ============================ COMPONENT 1 ================================= -->
-
-			<div class="row">
+    		{% if not cart_items%}
+    		<div class="text-center">
+    		<h2 style= "color:red"> Shopping Cart is empty </h2>
+    		<a href="{% url 'store' %}" class="btn  btn-primary"> <span class="text">Shop for fun!!</span> <i class="fas fa-shopping-cart"></i>  </a>
+    		</div>
+    		{% else %}
+            <div class="row">
 				<aside class="col-lg-9">
 					<div class="card">
 						<table class="table table-borderless table-shopping-cart">
@@ -30,7 +33,7 @@ extend this file-->
 										<figure class="itemside align-items-center">
 											<div class="aside"><img src="{{ cart_item.product.image.url }}" class="img-sm"></div>
 											<figcaption class="info">
-												<a href="#" class="title text-dark">{{ cart_item.product.product_name }}</a>
+												<a href="{{ cart_item.product.get_url }}" class="title text-dark">{{ cart_item.product.product_name }}</a>
 												<p class="text-muted small">Color: 25 Mpx <br> Size: Canon</p>
 											</figcaption>
 										</figure>
@@ -40,12 +43,12 @@ extend this file-->
 										<div class="col">
 											<div class="input-group input-spinner">
 												<div class="input-group-prepend">
-													<a href= "{% url 'add_cart' cart_item.product.id %}" class="btn btn-light" type="button" id="button-plus"> <i
+													<a href= "{% url 'remove_cart' cart_item.product.id %}" class="btn btn-light" type="button" id="button-plus"> <i
 															class="fa fa-minus"></i> </a>
 												</div>
 												<input type="text" class="form-control" value="{{cart_item.quantity}}">
 												<div class="input-group-append">
-													<a class="btn btn-light" type="button" id="button-minus"> <i
+													<a href= "{% url 'add_cart' cart_item.product.id %}" class="btn btn-light" type="button" id="button-minus"> <i
 															class="fa fa-plus"></i> </a>
 												</div>
 											</div> <!-- input-group.// -->
@@ -58,7 +61,7 @@ extend this file-->
 										</div> <!-- price-wrap .// -->
 									</td>
 									<td class="text-right">
-										<a href="" class="btn btn-danger"> Remove</a>
+										<a href= "{% url 'remove_cart_complete' cart_item.product.id %}" class="btn btn-danger"> Remove</a>
 									</td>
 								</tr>
                                 {% endfor %}
@@ -73,22 +76,22 @@ extend this file-->
 						<div class="card-body">
 							<dl class="dlist-align">
 								<dt>Total price:</dt>
-								<dd class="text-right">$69.97</dd>
+								<dd class="text-right">$ {{ total }}</dd>
 							</dl>
 							<dl class="dlist-align">
 								<dt>Tax:</dt>
-								<dd class="text-right"> $10.00</dd>
+								<dd class="text-right">$ {{ tax }}</dd>
 							</dl>
 							<dl class="dlist-align">
 								<dt>Total:</dt>
-								<dd class="text-right text-dark b"><strong>$59.97</strong></dd>
+								<dd class="text-right text-dark b"><strong>$ {{ grand_total }}</strong></dd>
 							</dl>
 							<hr>
 							<p class="text-center mb-3">
 								<img src="./images/misc/payments.png" height="26" alt = "Online payments coming soon">
 							</p>
 							<a href="./place-order.html" class="btn btn-primary btn-block"> Checkout </a>
-							<a href="./store.html" class="btn btn-light btn-block">Continue Shopping</a>
+							<a href="{%url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
 						</div> <!-- card-body.// -->
 					</div> <!-- card.// -->
 
@@ -96,7 +99,8 @@ extend this file-->
 
 
 			</div> <!-- row.// -->
-			<!-- ============================ COMPONENT 1 END .// ================================= -->
+			{% endif %}
+			
 
 		</div> <!-- container .//  -->
 	</section>

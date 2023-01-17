@@ -73,9 +73,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # Adding the Context-Processor so that the drop down context
-                # will be fetched from here
+                # Adding the Context-Processor for product-details so 
+                # that the drop down context will be fetched from here
                 'category.context_processor.menu_links', 
+                # Adding the Context-Processor of counting the number of 
+                # products in the cart so that the exact count 
+                # will be fetched from here
+                'cart.context_processor.counter', 
             ],
         },
     },
