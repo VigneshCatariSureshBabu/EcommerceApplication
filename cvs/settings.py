@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'accounts',
     # Registering the Store App
     'store',
+    # Registering the Cart App
+    'cart',
     
 ]
 

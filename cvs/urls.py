@@ -21,6 +21,9 @@ urlpatterns = [
     # Url for Store Page
     path('store/',include('store.urls')),
     ##
+    # Url for Store Page
+    path('cart/',include('cart.urls')),
+    ##
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # To add the media URL
  
 
