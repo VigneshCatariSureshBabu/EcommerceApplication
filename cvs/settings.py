@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Register each app created for this specific project
     # Registering the Category App
     'category',
     # Registering the Account App
@@ -45,6 +46,9 @@ INSTALLED_APPS = [
     'store',
     # Registering the Cart App
     'cart',
+    # Registering the Checkout App
+    'checkout',
+    ##
     
 ]
 
@@ -76,10 +80,12 @@ TEMPLATES = [
                 # Adding the Context-Processor for product-details so 
                 # that the drop down context will be fetched from here
                 'category.context_processor.menu_links', 
+                ##
                 # Adding the Context-Processor of counting the number of 
                 # products in the cart so that the exact count 
                 # will be fetched from here
                 'cart.context_processor.counter', 
+                ##
             ],
         },
     },
@@ -143,11 +149,15 @@ STATICFILES_DIRS = [
     'cvs/static'
     ]
 
+# Customized app mainly for creating the user account instead of Django's 
+# default admin
 # Registering the Customized user account details for user creation
 AUTH_USER_MODEL = 'accounts.Account'
-
+##
+# Customized for using the media files
 # For uploading the media file
 MEDIA_URL = '/media/'
 
 # Giving the path for the static directory
 MEDIA_ROOT = BASE_DIR /'media'
+##

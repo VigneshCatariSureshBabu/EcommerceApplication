@@ -5,6 +5,7 @@ from django.shortcuts import render
 # Importing product model
 from store.models import Product
 
+# To view all the products with it's details in the home page
 def home(request):
     
     # To fetch all the products that are available
@@ -17,3 +18,4 @@ def home(request):
     
     
     return render(request, 'home.html', context)
+##
