@@ -35,13 +35,11 @@ extend this file-->
                                         <div class="aside"><img src="{{ cart_item.product.image.url }}" class="img-sm">
                                         </div>
                                         <figcaption class="info">
-                                            <a href="{{ cart_item.product.get_url }}" class="title text-dark">{{
-                                                cart_item.product.product_name }}</a>
+                                            <a href="{{ cart_item.product.get_url }}" class="title text-dark">{{ cart_item.product.product_name }}</a>
                                             <p class="text-muted small">
                                                 {% if cart_item.variation.all %}
                                                 {% for item in cart_item.variation.all%}
-                                                {{item.variation_category | capfirst}} : {{item.variation_value |
-                                                capfirst}} <br>
+                                                {{item.variation_category | capfirst}} : {{item.variation_value | capfirst}} <br>
                                                 {% endfor %}
                                                 {% endif %}
                                             </p>
@@ -107,9 +105,7 @@ extend this file-->
                             <dd class="text-right text-dark b"><strong>$ {{ grand_total }}</strong></dd>
                         </dl>
                         <hr>
-                        <p class="text-center mb-3">
-                            <img src="./images/misc/payments.png" height="26" alt="Online payments coming soon">
-                        </p>
+                        
                         <a href=".{% url 'checkout' %}" class="btn btn-primary btn-block"> Checkout </a>
                         <a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
                     </div> 

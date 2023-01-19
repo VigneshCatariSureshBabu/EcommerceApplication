@@ -41,8 +41,7 @@ extend this file-->
                                     <select name="color" class="form-control" required>
                                         <option value="" disabled selected>Color:</option>
                                         {% for i in single_product.variation_set.colors %}
-                                        <option value="{{ i.variation_value | capfirst }}">{{ i.variation_value |
-                                            capfirst }}</option>
+                                        <option value="{{ i.variation_value | capfirst }}">{{ i.variation_value | capfirst }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -54,8 +53,7 @@ extend this file-->
                                         <select name="size" class="form-control" required>
                                             <option value="" disabled selected>Size:</option>
                                             {% for i in single_product.variation_set.sizes %}
-                                            <option value="{{ i.variation_value | lower }}">{{ i.variation_value |
-                                                capfirst }}</option>
+                                            <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>

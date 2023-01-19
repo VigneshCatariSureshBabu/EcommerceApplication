@@ -46,9 +46,7 @@ INSTALLED_APPS = [
     'store',
     # Registering the Cart App
     'cart',
-    # Registering the Checkout App
-    'checkout',
-    ##
+    
     
 ]
 
