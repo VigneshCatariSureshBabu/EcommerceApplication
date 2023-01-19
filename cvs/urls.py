@@ -24,9 +24,6 @@ urlpatterns = [
     # Url for Store Page
     path('cart/',include('cart.urls')),
     ##
-    # Url for Store Page
-    path('checkout/',include('checkout.urls')),
-    ##
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # To add the media URL
  
 
