@@ -148,16 +148,18 @@ STATIC_ROOT = BASE_DIR /'static'
 STATICFILES_DIRS = [
     'cvs/static'
     ]
+##
 
 # Customized app mainly for creating the user account instead of Django's 
 # default admin
 # Registering the Customized user account details for user creation
 AUTH_USER_MODEL = 'accounts.Account'
 ##
+
 # Customized for using the media files
 # For uploading the media file
 MEDIA_URL = '/media/'
-
+##
 # Giving the path for the static directory
 MEDIA_ROOT = BASE_DIR /'media'
 ##

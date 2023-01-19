@@ -1,0 +1,75 @@
+# Ecommerce Application V1.0.0
+
+This is an Online ecommerce demo project created using Django Web Framework.
+
+
+## Features
+
+* Create User account
+* Create Categories for the products
+* Upload the product based on the categories
+* Can able to check the products added in each category
+* Product variation can be also done with the help of Color and Size
+*  
+
+
+## Prerequisites
+
+Be sure you have the following installed on your development machine:
+
++ Python >= 3.7
++ Git >= 2.31.0
++ Git Bash
++ Virtualenv (virtualenvwrapper is recommended)
+
+## Requirements
+
++ asgiref==3.2.10
++ Django==3.1
++ Pillow==9.4.0
++ pytz==2022.7.1
++ sqlparse==0.4.3
+
+
+## Project Installation
+
+To setup a local development environment:
+
+Create a virtual environment in which to install Python pip packages. With [virtualenv](https://pypi.python.org/pypi/virtualenv),
+```bash
+virtualenv venv            # create a virtualenv
+source venv/bin/activate   # activate the Python virtualenv 
+```
+
+or with [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/en/latest/),
+```bash
+mkvirtualenv -p python3 {{project_name}}   # create and activate environment
+workon {{project_name}}   # reactivate existing environment
+```
+
+Clone GitHub Project,
+```bash
+git@github.com:VigneshCatariSureshBabu/EcommerceApplication.git
+```
+
+Install development dependencies,
+```bash
+pip install -r requirements.txt
+```
+
+Migrate Database,
+```bash
+python manage.py migrate
+```
+
+Run the web application locally,
+```bash
+python manage.py runserver # 127.0.0.1:8000
+```
+
+Create Superuser,
+```bash
+python manage.py createsuperuser
+```
+
+
